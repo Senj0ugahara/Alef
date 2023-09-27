@@ -10,13 +10,15 @@
     </div>
     <div class="presonal-info-child">
       <h3 class="presonal-info-title">Дети</h3>
-      <div class="presonal-info-child__value" v-for="(child, index) in getChilds" :key="index">
-        <p>
-          <b>
-            {{ child.name }}, {{ child.age }} лет
-          </b>
-        </p>
-      </div>
+      <ul class="presonal-info-child__list">
+        <li class="presonal-info-child__item" v-for="(child, index) in getChilds" :key="index">
+          <p>
+            <b>
+              {{ child.name }}, {{ child.age }} лет
+            </b>
+          </p>
+        </li>
+      </ul>
     </div>
   </div>
   <div class="personal-info__empty" v-else>
@@ -59,7 +61,13 @@ export default {
   }
 
   &-child {
-    &__value {
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__item {
       display: inline-block;
       padding: 10px 20px;
       background: #F1F1F1;
